@@ -32,9 +32,7 @@
   --bs-border-color-translucent: rgba(0, 0, 0, 0.1);
   --bs-box-shadow: 0 0.25rem 0.75rem rgba(0, 31, 63, 0.15);
 
-  --bs-font-sans-serif: "Public Sans Variable", -apple-system,
-    blinkmacsystemfont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --bs-font-sans-serif: Georgia, serif;
   --bs-root-font-size: 16px;
   --bs-body-font-size: 0.9375rem;
   --bs-body-font-weight: 400;
@@ -14567,15 +14565,23 @@ li:not(:first-child) .dropdown-item,
   --bs-text-opacity: 1;
   color: rgba(var(--bs-info-rgb), var(--bs-text-opacity)) !important;
 }
-
 .text-warning {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-warning-rgb), var(--bs-text-opacity)) !important;
+  transition: color 0.2s ease-in-out;
+}
+
+.text-warning:hover {
+  color: rgba(var(--bs-warning-rgb), 0.85) !important; 
 }
 
 .text-danger {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity)) !important;
+  transition: color 0.2s ease-in-out;
+}
+
+.text-danger:hover {/* leve escurecimento */
 }
 
 .text-light {
