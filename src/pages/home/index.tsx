@@ -1,3 +1,40 @@
+import { BackgroundImage, Button, Text, Title, em } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+import { ArrowBigRight, ChevronRight } from "lucide-react";
+import classes from "./Home.module.css";
+import backgroundHome from "@/assets/image/backgroud-home.jpg";
+
 export function Home() {
-  return <h2>Home Page</h2>;
+  const isMobile = useMediaQuery(`(max-width: ${em(767)})`);
+
+  return (
+    <BackgroundImage
+      src={backgroundHome}
+      radius={0}
+      style={{ height: "100vh", width: "100%" }}
+      className="d-flex align-items-center"
+    >
+      <div className="container row g-6">
+        <div className="col-12 col-md-8 p-3">
+          <Title order={1} className={classes.homeTitle}>
+            Hogwarts Catalog
+          </Title>
+          <Text className={classes.homeSubtitle}>
+            Magic is closer than you think. Step through the gate and discover
+            what Hogwarts has in store for you…
+          </Text>
+          <Button
+            variant="outline"
+            color="yellow"
+            size={isMobile ? "icon" : "default"}
+            className={classes.homeButton}
+          >
+            {isMobile ? (
+              <ArrowBigRight/> 
+            ) : 'Explore'}
+          </Button>
+        </div>
+      </div>
+    </BackgroundImage>
+  );
 }

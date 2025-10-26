@@ -1,0 +1,59 @@
+.homeContainer {
+  height: 100vh;
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/asset/image/background-home.jpg");
+  background-size: cover;
+  background-position: top center;
+  padding: 0 20px;
+}
+
+.homeStack {
+  max-width: 600px;
+  text-align: left;
+}
+
+.homeTitle {
+  color: #E6B83C;
+  text-shadow: 0 0 10px rgba(230, 184, 60, 0.5);
+  letter-spacing: 2px;
+  font-size: 5rem;
+}
+
+.homeSubtitle {
+  color: #FFFFFF;
+  opacity: 0.9;
+  font-size: 1.8rem;
+}
+
+.homeButton {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .homeTitle {
+    font-size: 3.5rem;
+  }
+  .homeSubtitle {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .homeTitle {
+    font-size: 2.5rem;
+  }
+  .homeSubtitle {
+    font-size: 1.2rem;
+  }
+  .homeButton {
+    font-size: 0.9rem;
+  }
+}
+
+
