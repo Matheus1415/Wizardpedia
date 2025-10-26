@@ -12,7 +12,7 @@ export function Home() {
     <BackgroundImage
       src={backgroundHome}
       radius={0}
-      style={{ height: "100vh", width: "100%" }}
+      style={{ height: "95vh", width: "100%" }}
       className="d-flex align-items-center"
     >
       <div className="container row g-6">
