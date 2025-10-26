@@ -1,15 +1,17 @@
-import type { ApiError } from "@/http/types/ApiErro";
-import type { ApiSuccess } from "@/http/types/ApiSuccess";
+import { Api } from "@/libs/axios/api";
+import type { Character } from "@/types/Character";
 import useSWR from "swr";
 
+const fetcher = (url: string) =>
+  Api.get<Character[]>(url).then((res) => res.data);
 
-export function useStudent() {
-
-  const { data, error, isLoading } = useSWR<ApiSuccess<[]>, ApiError>('characters');
-
+export function useStudents() {
+  const { data, error, isLoading } = useSWR<Character[]>("characters", fetcher);
+  const students = data?.filter((char) => char.hogwartsStudent) ?? [];
+  
   return {
-    students: data?.data ?? [],
+    students: students ?? [],
     error,
-    isLoading:isLoading ,
+    isLoading,
   };
 }
