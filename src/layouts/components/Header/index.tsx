@@ -26,8 +26,8 @@ export function Header() {
         className={({ isActive }) =>
           `d-flex align-items-center gap-2
           ${classes.link}
-          ${isActive ? "text-info" : "text-white"} ${
-            isMobile ? "text-info" : ""
+          ${isActive ? classes.textHighlight : classes.textWhite} ${
+            isMobile ? classes.textHighlight : classes.textWhite
           }`
         }
         onClick={isMobile ? closeDrawer : undefined}

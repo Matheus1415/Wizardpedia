@@ -2,7 +2,6 @@
   line-height: 1;
   padding: 0.75rem 1rem;
   text-decoration: none;
-  color: white;
   font-size: 1.2rem;
   font-weight: 500;
   position: relative;
@@ -10,8 +9,12 @@
   transition: color 0.3s ease;
 }
 
+.textWhite {
+  color: #ffffffff !important;
+}
+
 .link:hover {
-  color: var(--bs-info) !important;
+  color: #E6B83C !important;
 }
 
 .dropdownFooter {
@@ -60,4 +63,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.textHighlight {
+  color: #E6B83C !important;
 }

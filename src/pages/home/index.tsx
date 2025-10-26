@@ -1,10 +1,11 @@
 import { BackgroundImage, Button, Text, Title, em } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import { ArrowBigRight, ChevronRight } from "lucide-react";
+import { ArrowBigRight } from "lucide-react";
 import classes from "./Home.module.css";
 import backgroundHome from "@/assets/image/backgroud-home.jpg";
 
 export function Home() {
+  
   const isMobile = useMediaQuery(`(max-width: ${em(767)})`);
 
   return (
