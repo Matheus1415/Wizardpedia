@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { Group, Burger, Drawer, ScrollArea, Box } from "@mantine/core";
 import { NavLink } from "react-router";
+import { Home, User, Book, Castle, Wand } from "lucide-react";
+import classes from "./Header.module.css";
 
 const links = [
-  { link: "/", label: "Home" },
-  { link: "/students", label: "Students" },
-  { link: "/spells", label: "Spells" },
-  { link: "/houses", label: "Houses" },
-  { link: "/staff", label: "Staff" },
+  { link: "/", label: "Home", icon: <Home size={20} /> },
+  { link: "/students", label: "Students", icon: <User size={20} /> },
+  { link: "/spells", label: "Spells", icon: <Wand size={20} /> },
+  { link: "/houses", label: "Houses", icon: <Castle size={20} /> },
+  { link: "/staff", label: "Staff", icon: <Book size={20} /> },
 ];
 
 export function Header() {
@@ -22,28 +24,33 @@ export function Header() {
         key={link.label}
         to={link.link}
         className={({ isActive }) =>
-          `${isActive ? "text-primary" : "text-white"} ${
-            isMobile ? "d-block py-2 text-center" : "text-decoration-none mx-2"
+          `d-flex align-items-center gap-2
+          ${classes.link}
+          ${isActive ? "text-info" : "text-white"} ${
+            isMobile ? "text-info" : ""
           }`
         }
         onClick={isMobile ? closeDrawer : undefined}
       >
-        {link.label}
+        {link.icon} {link.label}
       </NavLink>
     ));
 
   return (
-    <Box pb={20} className="d-flex justify-content-center align-items-center">
-      <header>
-        <div className="container d-flex justify-content-between align-items-center py-2">
-          <Group className="d-none d-sm-flex">
-            {renderLinks()}
+    <Box>
+      <header className={classes.header}>
+        <div className={classes.headerContainer}>
+          <div className={classes.logo}>Wizardpedia</div>
+
+          <Group spacing="lg" className="d-none d-sm-flex">
+            <div className={classes.navLinks}>{renderLinks()}</div>
           </Group>
 
           <Burger
             opened={drawerOpened}
             onClick={toggleDrawer}
             className="d-sm-none"
+            color="white"
           />
         </div>
       </header>
@@ -55,10 +62,9 @@ export function Header() {
         padding="md"
         hiddenFrom="sm"
         zIndex={1000000}
-        transitionDuration={300}
       >
         <ScrollArea h="calc(100vh - 80px)" mx="-md">
-          <div>{renderLinks(true)}</div>
+          <div className={classes.drawerLinks}>{renderLinks(true)}</div>
         </ScrollArea>
       </Drawer>
     </Box>
