@@ -1,4 +1,5 @@
 import DefaultLayout from "@/layouts/DefaultLayout";
+import { Home } from "@/pages/home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export function Router() {
@@ -6,7 +7,7 @@ export function Router() {
     <BrowserRouter>
       <Routes>
         <Route element={<DefaultLayout />}>
-          <Route path="/" element={<div>Home Page</div>} />
+          <Route path="/" element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>
