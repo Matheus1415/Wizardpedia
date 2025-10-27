@@ -7,7 +7,7 @@ const fetcher = (url: string) =>
   Api.get<Character[]>(url).then((res) => res.data);
 
 export function useStudents() {
-  const { data, error, isLoading } = useSWR<Character[]>("characters", fetcher);
+  const { data, error, isLoading } = useSWR<Character[]>("characters/students", fetcher);
   const students: Student[] = data?.filter((char) => char.hogwartsStudent) ?? [];
   
   return {
