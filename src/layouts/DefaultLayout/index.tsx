@@ -3,9 +3,9 @@ import { Header } from "../components/Header";
 
 export default function DefaultLayout() {
   return (
-    <div className="default-layout">
+    <main className="default-layout bg-dark p-4">
       <Header/>
       <Outlet />
-    </div>
+    </main>
   );
 }
