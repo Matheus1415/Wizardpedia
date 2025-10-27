@@ -13,20 +13,11 @@ import { StudentOverlay } from "./components/StudentOverlay";
 import defaultImageStudants from "@/assets/image/default-card-students.jpg";
 import backgroundStudent from "@/assets/image/backgroud-student.jpg";
 import { StudentsSkeleton } from "./components/StudentsSkeleton";
-
-interface Student {
-  id: string;
-  name: string;
-  species: string;
-  gender: string;
-  house: "Gryffindor" | "Slytherin" | "Hufflepuff" | "Ravenclaw" | string;
-  wizard: boolean;
-  alive: boolean;
-  image: string;
-}
+import { useNavigate } from "react-router-dom";
 
 export function Students() {
-  const { students, isLoading } = useStudents() as { students: Student[] };
+  const { students, isLoading } = useStudents();
+  const route = useNavigate();
 
   const getHouseColor = (house?: string) =>
     houseColors[house as keyof typeof houseColors] || houseColors.default;
@@ -63,7 +54,8 @@ export function Students() {
                       radius="lg"
                       h={400}
                       withBorder={false}
-                      className={classes.card}
+                      className={`${classes.card} cursor-pointer`}
+                      onClick={() => route(`/students/${student.id}`)}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.transform = "translateY(-5px)";
                         e.currentTarget.style.boxShadow = `0 10px 25px ${houseColor}40`;

@@ -1,5 +1,6 @@
 import { Api } from "@/libs/axios/api";
 import type { Character } from "@/types/Character";
+import type { Student } from "@/types/Student";
 import useSWR from "swr";
 
 const fetcher = (url: string) =>
@@ -7,7 +8,7 @@ const fetcher = (url: string) =>
 
 export function useStudents() {
   const { data, error, isLoading } = useSWR<Character[]>("characters", fetcher);
-  const students = data?.filter((char) => char.hogwartsStudent) ?? [];
+  const students: Student[] = data?.filter((char) => char.hogwartsStudent) ?? [];
   
   return {
     students: students ?? [],
