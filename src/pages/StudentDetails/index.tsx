@@ -9,7 +9,7 @@ import {
 } from "@mantine/core";
 import { ArrowLeft } from "lucide-react";
 import { useStudentDetails } from "@/http/requests/Students/useStudentDetails";
-import backgroundStudentDetails from "@/assets/image/backgroud-student-details.jpg";
+import backgroundStudentDetails from "@/assets/image/background-student-details.jpg";
 import { StudentCard } from "./components/StudentCard";
 import { StudentNotFound } from "./components/StudentNotFound";
 

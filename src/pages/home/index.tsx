@@ -2,7 +2,7 @@ import { BackgroundImage, Button, Text, Title, em } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { ArrowBigRight } from "lucide-react";
 import classes from "./Home.module.css";
-import backgroundHome from "@/assets/image/backgroud-home.jpg";
+import backgroundHome from "@/assets/image/background-home.jpg";
 
 export function Home() {
   

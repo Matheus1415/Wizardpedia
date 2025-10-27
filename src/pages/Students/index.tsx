@@ -11,7 +11,7 @@ import { useStudents } from "@/http/requests/Students/useStudent";
 import { houseColors } from "@/styles/houseColors";
 import { StudentOverlay } from "./components/StudentOverlay";
 import defaultImageStudants from "@/assets/image/default-card-students.jpg";
-import backgroundStudent from "@/assets/image/backgroud-student.jpg";
+import backgroundStudent from "@/assets/image/background-student.jpg";
 import { StudentsSkeleton } from "./components/StudentsSkeleton";
 import { useNavigate } from "react-router-dom";
 

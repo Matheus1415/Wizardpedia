@@ -1,0 +1,102 @@
+.StudentsContainer {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e6b83c;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(230, 184, 60, 0.4);
+}
+
+.card {
+  height: 380;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: rgba(0, 0, 0, 0.711);
+}
+
+.studentCard {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--mantine-radius-lg);
+}
+
+.cardTopBorder {
+  height: 8px;
+  border-top-left-radius: var(--mantine-radius-lg);
+  border-top-right-radius: var(--mantine-radius-lg);
+}
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.bottomSection {
+  background-color: #192730;
+  padding: var(--mantine-spacing-md);
+  border-bottom-left-radius: var(--mantine-radius-lg);
+  border-bottom-right-radius: var(--mantine-radius-lg);
+  position: relative;
+  padding-left: calc(var(--mantine-spacing-md) + 60px);
+  padding-right: calc(var(--mantine-spacing-md) + 30px);
+  min-height: 200px;
+}
+
+.bigNumberCircle {
+  position: absolute;
+  top: var(--mantine-spacing-md);
+  left: var(--mantine-spacing-md);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--mantine-color-white);
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border: 2px solid var(--mantine-color-gray-4);
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.iconSidebar {
+  position: absolute;
+  top: var(--mantine-spacing-md);
+  right: var(--mantine-spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantine-spacing-xs);
+  z-index: 2;
+}
+
+.iconContainer {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--mantine-color-gray-8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mantine-color-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
