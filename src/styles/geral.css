@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    padding:5px;
     background-color:rgb(43, 44, 64);;
 }
 ol, ul {
