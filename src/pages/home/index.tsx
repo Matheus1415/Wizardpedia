@@ -2,7 +2,7 @@ import { BackgroundImage, Button, Text, Title, em } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { ArrowBigRight } from "lucide-react";
 import classes from "./Home.module.css";
-import backgroundHome from "@/assets/image/backgroud-home.jpg";
+import backgroundHome from "@/assets/image/background-home.jpg";
 
 export function Home() {
   
@@ -28,7 +28,7 @@ export function Home() {
             variant="outline"
             color="yellow"
             size={isMobile ? "icon" : "default"}
-            className={classes.homeButton}
+            className={`${classes.homeButton} mt-4`}
           >
             {isMobile ? (
               <ArrowBigRight/> 

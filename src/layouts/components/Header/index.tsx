@@ -37,7 +37,7 @@ export function Header() {
 
   return (
     <Box>
-      <header className={classes.header}>
+      <header className={`${classes.header} p-3`}>
         <div className={classes.headerContainer}>
           <div className={classes.logo}>Wizardpedia</div>
 
