@@ -28,7 +28,7 @@ export function Home() {
             variant="outline"
             color="yellow"
             size={isMobile ? "icon" : "default"}
-            className={classes.homeButton}
+            className={`${classes.homeButton} mt-4`}
           >
             {isMobile ? (
               <ArrowBigRight/> 

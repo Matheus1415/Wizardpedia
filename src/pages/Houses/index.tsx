@@ -1,25 +1,40 @@
-import {
-  BackgroundImage,
-} from "@mantine/core";
+// Houses.tsx
+import { BackgroundImage } from "@mantine/core";
+import backgroundHouses from "@/assets/image/background-houses.jpg";
+import { useHouses } from "@/http/requests/houses/useHouses";
 import classes from "./Houses.module.css";
-import backgroundStudent from "@/assets/image/background-student.jpg";
+
+import graffindor from "@/assets/image/houses/gryffindor.jpeg";
+import hufflepuff from "@/assets/image/houses/hufflepuff.jpeg";
+import ravenclaw from "@/assets/image/houses/ravenclaw.jpeg";
+import slytherin from "@/assets/image/houses/slytherin.jpeg";
+import { HousesList } from "./components/HousesList";
+import { HousesNotFound } from "./components/HousesNotFound";
+
+const houseImages: Record<string, string> = {
+  Gryffindor: graffindor,
+  Slytherin: slytherin,
+  Hufflepuff: hufflepuff,
+  Ravenclaw: ravenclaw,
+};
 
 export function Houses() {
+  const { houses } = useHouses();
 
   return (
     <BackgroundImage
-      src={backgroundStudent}
+      src={backgroundHouses}
       radius={0}
-      style={{ height: "95vh", width: "100%" }}
-      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "95vh", width: "100%" }}
+      className="d-flex align-items-center justify-content-center p-4"
     >
-      <div
-        className={classes.StudentsContainer}
-      >
-        <div className="container mt-4" style={{ flex: 1 }}>
-          <h1 className={classes.title}>Hogwarts houses</h1>
-
-        </div>
+      <div className="container">
+        <h1 className={`${classes.title} mb-4`}>Hogwarts houses</h1>
+        {!houses || houses.length === 0 ? (
+          <HousesNotFound />
+        ) : (
+          <HousesList houses={houses} houseImages={houseImages} />
+        )}
       </div>
     </BackgroundImage>
   );
