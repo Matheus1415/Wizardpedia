@@ -1,19 +1,19 @@
-import {
-  Card,
-  Image,
-  SimpleGrid,
-  Box,
-  BackgroundImage,
-  ScrollArea,
-} from "@mantine/core";
-import classes from "./Students.module.css";
-import { useStudents } from "@/http/requests/Students/useStudent";
-import { houseColors } from "@/styles/houseColors";
-import { StudentOverlay } from "./components/StudentOverlay";
-import defaultImageStudants from "@/assets/image/default-card-students.jpg";
-import backgroundStudent from "@/assets/image/background-student.jpg";
-import { StudentsSkeleton } from "./components/StudentsSkeleton";
-import { useLocation, useNavigate } from "react-router-dom";
+  import {
+    Card,
+    Image,
+    SimpleGrid,
+    Box,
+    BackgroundImage,
+    ScrollArea,
+  } from "@mantine/core";
+  import classes from "./Students.module.css";
+  import { useStudents } from "@/http/requests/Students/useStudent";
+  import { houseColors } from "@/styles/houseColors";
+  import { StudentOverlay } from "./components/StudentOverlay";
+  import defaultImageStudants from "@/assets/image/default-card-students.jpg";
+  import backgroundStudent from "@/assets/image/background-student.jpg";
+  import { StudentsSkeleton } from "./components/StudentsSkeleton";
+  import { useLocation, useNavigate } from "react-router-dom";
 
 export function Students() {
   const location = useLocation();
