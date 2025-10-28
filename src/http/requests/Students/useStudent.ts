@@ -6,12 +6,26 @@ import useSWR from "swr";
 const fetcher = (url: string) =>
   Api.get<Character[]>(url).then((res) => res.data);
 
-export function useStudents() {
-  const { data, error, isLoading } = useSWR<Character[]>("characters/students", fetcher);
-  const students: Student[] = data?.filter((char) => char.hogwartsStudent) ?? [];
-  
+interface UseStudentsProps {
+  house?: string|undefined; 
+}
+
+export function useStudents({ house }: UseStudentsProps = {}) {
+  const { data, error, isLoading } = useSWR<Character[]>(
+    "characters/students",
+    fetcher
+  );
+
+  let students: Student[] = data?.filter((char) => char.hogwartsStudent) ?? [];
+
+  if (house) {
+    students = students.filter(
+      (student) => student.house?.toLowerCase() === house.toLowerCase()
+    );
+  }
+
   return {
-    students: students ?? [],
+    students,
     error,
     isLoading,
   };

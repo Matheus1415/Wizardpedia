@@ -11,8 +11,8 @@ export function Router() {
       <Routes>
         <Route element={<DefaultLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/students" element={<Students />} />
-          <Route path="/students/:id" element={<StudentDetails />} />
+          <Route path="/students/:house?" element={<Students />} />
+          <Route path="/student/:id" element={<StudentDetails />} />
           <Route path="/houses" element={<Houses />} />
         </Route>
       </Routes>

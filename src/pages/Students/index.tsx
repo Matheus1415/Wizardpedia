@@ -13,10 +13,14 @@ import { StudentOverlay } from "./components/StudentOverlay";
 import defaultImageStudants from "@/assets/image/default-card-students.jpg";
 import backgroundStudent from "@/assets/image/background-student.jpg";
 import { StudentsSkeleton } from "./components/StudentsSkeleton";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export function Students() {
-  const { students, isLoading } = useStudents();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const house = params.get("house") ?? undefined;
+
+  const { students, isLoading } = useStudents({ house });
   const route = useNavigate();
 
   const getHouseColor = (house?: string) =>
@@ -29,9 +33,7 @@ export function Students() {
       style={{ height: "95vh", width: "100%" }}
       className="d-flex align-items-center justify-content-center"
     >
-      <div
-        className={classes.StudentsContainer}
-      >
+      <div className={classes.StudentsContainer}>
         <div className="container mt-4" style={{ flex: 1 }}>
           <h1 className={classes.title}>Hogwarts Students</h1>
 
@@ -55,7 +57,7 @@ export function Students() {
                       h={400}
                       withBorder={false}
                       className={`${classes.card} cursor-pointer`}
-                      onClick={() => route(`/students/${student.id}`)}
+                      onClick={() => route(`/student/${student.id}`)}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.transform = "translateY(-5px)";
                         e.currentTarget.style.boxShadow = `0 10px 25px ${houseColor}40`;
