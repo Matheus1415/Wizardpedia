@@ -1,6 +1,7 @@
 import DefaultLayout from "@/layouts/DefaultLayout";
 import { Home } from "@/pages/home";
 import { Houses } from "@/pages/Houses";
+import { Spells } from "@/pages/Spells";
 import { Staff } from "@/pages/Staff";
 import { StudentDetails } from "@/pages/StudentDetails";
 import { Students } from "@/pages/Students";
@@ -16,6 +17,7 @@ export function Router() {
           <Route path="/student/:id" element={<StudentDetails />} />
           <Route path="/houses" element={<Houses />} />
           <Route path="/staff" element={<Staff />} />
+          <Route path="/spells" element={<Spells />} />
         </Route>
       </Routes>
     </BrowserRouter>

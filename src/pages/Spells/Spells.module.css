@@ -1,0 +1,52 @@
+.container {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 3px solid white;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e6b83c;
+  margin-bottom: 2rem;
+  margin-top:3rem;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(230, 184, 60, 0.4);
+}
+
+.spellCard {
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(145deg, #1a1a2e, #0d0d1a);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spellCard:hover {
+  transform: scale(1.05);
+}
+
+.spellCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #ffeb3b, #55357E, #e6b83c);
+}
+
