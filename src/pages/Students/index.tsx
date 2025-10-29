@@ -1,19 +1,8 @@
-  import {
-    Card,
-    Image,
-    SimpleGrid,
-    Box,
-    BackgroundImage,
-    ScrollArea,
-  } from "@mantine/core";
-  import classes from "./Students.module.css";
-  import { useStudents } from "@/http/requests/Students/useStudent";
-  import { houseColors } from "@/styles/houseColors";
-  import { StudentOverlay } from "./components/StudentOverlay";
-  import defaultImageStudants from "@/assets/image/default-card-students.jpg";
-  import backgroundStudent from "@/assets/image/background-student.jpg";
-  import { StudentsSkeleton } from "./components/StudentsSkeleton";
-  import { useLocation, useNavigate } from "react-router-dom";
+import { useStudents } from "@/http/requests/Students/useStudent";
+import { houseColors } from "@/styles/houseColors";
+import backgroundStudent from "@/assets/image/background-student.jpg";
+import { useLocation, useNavigate } from "react-router-dom";
+import { CatalogPageLayout } from "@/layouts/components/CatalogPageLayout";
 
 export function Students() {
   const location = useLocation();
@@ -21,85 +10,17 @@ export function Students() {
   const house = params.get("house") ?? undefined;
 
   const { students, isLoading } = useStudents({ house });
-  const route = useNavigate();
-
-  const getHouseColor = (house?: string) =>
-    houseColors[house as keyof typeof houseColors] || houseColors.default;
+  const navigate = useNavigate();
 
   return (
-    <BackgroundImage
-      src={backgroundStudent}
-      radius={0}
-      style={{ height: "95vh", width: "100%" }}
-      className="d-flex align-items-center justify-content-center"
-    >
-      <div className={classes.StudentsContainer}>
-        <div className="container mt-4" style={{ flex: 1 }}>
-          <h1 className={classes.title}>Hogwarts Students</h1>
-
-          <ScrollArea style={{ height: "450px" }} type="auto" scrollbarSize={8}>
-            {isLoading ? (
-              <StudentsSkeleton />
-            ) : (
-              <SimpleGrid
-                cols={{ base: 1, sm: 2, md: 3, lg: 4 }}
-                spacing="xl"
-                mt="lg"
-              >
-                {students.map((student) => {
-                  const houseColor = getHouseColor(student.house);
-
-                  return (
-                    <Card
-                      key={student.id}
-                      shadow="xl"
-                      radius="lg"
-                      h={400}
-                      withBorder={false}
-                      className={`${classes.card} cursor-pointer`}
-                      onClick={() => route(`/student/${student.id}`)}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = "translateY(-5px)";
-                        e.currentTarget.style.boxShadow = `0 10px 25px ${houseColor}40`;
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = "translateY(0)";
-                        e.currentTarget.style.boxShadow = "";
-                      }}
-                    >
-                      <Card.Section style={{ height: "100%" }}>
-                        <Image
-                          src={student.image || defaultImageStudants}
-                          alt={student.name}
-                          height="300px"
-                          width="100%"
-                          fit="cover"
-                        />
-                      </Card.Section>
-
-                      <StudentOverlay
-                        student={student}
-                        houseColor={houseColor}
-                      />
-
-                      <Box
-                        style={{
-                          position: "absolute",
-                          top: 0,
-                          left: 0,
-                          width: "100%",
-                          height: 8,
-                          backgroundColor: houseColor,
-                        }}
-                      />
-                    </Card>
-                  );
-                })}
-              </SimpleGrid>
-            )}
-          </ScrollArea>
-        </div>
-      </div>
-    </BackgroundImage>
+    <CatalogPageLayout
+      title="Hogwarts Students"
+      type="students"
+      background={backgroundStudent}
+      items={students}
+      isLoading={isLoading}
+      getColor={(s) => houseColors[s.house as keyof typeof houseColors] || houseColors.default}
+      onCardClick={(s) => navigate(`/student/${s.id}`)}
+    />
   );
 }

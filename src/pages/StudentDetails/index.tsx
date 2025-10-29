@@ -30,7 +30,7 @@ export function StudentDetails() {
             component={Link}
             to="/students"
             leftSection={<ArrowLeft size={18} />}
-            className="text-white"
+            className="p-2 text-white"
           >
             Voltar
           </Button>
