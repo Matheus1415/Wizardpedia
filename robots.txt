@@ -1,0 +1,22 @@
+
+# Permite todos os rastreadores a acessar o site
+User-agent: *
+Allow: /
+
+# Bloqueia diretórios técnicos que não devem ser indexados
+Disallow: /admin/
+Disallow: /api/
+Disallow: /assets/temp/
+Disallow: /private/
+Disallow: /drafts/
+
+# Bloqueia arquivos específicos (caso existam)
+Disallow: /*.json$
+Disallow: /*.env$
+Disallow: /*.log$
+
+# Sinaliza o tempo de espera entre requisições para bots (opcional)
+Crawl-delay: 5
+
+# Indica a localização do sitemap principal
+Sitemap: https://matheus.com/sitemap.xml
