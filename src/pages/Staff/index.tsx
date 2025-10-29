@@ -1,28 +1,21 @@
-import { SimpleGrid, BackgroundImage, ScrollArea } from "@mantine/core";
-import classes from "./Staff.module.css";
+import { useStaff } from "@/http/requests/staff/useStaff";
+import { houseColors } from "@/styles/houseColors";
 import backgroundStaff from "@/assets/image/background-staff.jpg";
+import { CatalogPageLayout } from "@/layouts/components/CatalogPageLayout";
 
 export function Staff() {
-  return (
-    <BackgroundImage
-      src={backgroundStaff}
-      radius={0}
-      style={{ height: "95vh", width: "100%" }}
-      className="d-flex align-items-center justify-content-center"
-    >
-      <div className={classes.StaffContainer}>
-        <div className="container mt-4" style={{ flex: 1 }}>
-          <h1 className={classes.title}>Hogwarts staff</h1>
+  const { staff, isLoading } = useStaff();
 
-          <ScrollArea style={{ height: "450px" }} type="auto" scrollbarSize={8}>
-            <SimpleGrid
-              cols={{ base: 1, sm: 2, md: 3, lg: 4 }}
-              spacing="xl"
-              mt="lg"
-            ></SimpleGrid>
-          </ScrollArea>
-        </div>
-      </div>
-    </BackgroundImage>
+  return (
+    <CatalogPageLayout
+      title="Hogwarts Staff"
+      type="staff"
+      background={backgroundStaff}
+      items={staff}
+      isLoading={isLoading}
+      getColor={(member) =>
+        houseColors[member.house as keyof typeof houseColors] || houseColors.default
+      }
+    />
   );
 }

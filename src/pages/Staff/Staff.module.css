@@ -14,3 +14,11 @@
   letter-spacing: 1px;
   text-shadow: 0 0 6px rgba(230, 184, 60, 0.4);
 }
+
+.card {
+  height: 380;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: rgba(0, 0, 0, 0.711);
+}
