@@ -11,9 +11,11 @@ import classes from "./Spells.module.css";
 import backgroundSpells from "@/assets/image/background-spells.jpg";
 import { SkeletonComponent } from "@/components/SkeletonComponent";
 import { Sparkles } from "lucide-react";
+import { usePageTitle } from "@/hook/usePageTitle";
 
 export function Spells() {
   const { spells, isLoading } = useSpells();
+  usePageTitle('Spells - Wizardpedia')
 
   return (
     <BackgroundImage

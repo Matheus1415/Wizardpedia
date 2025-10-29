@@ -12,10 +12,12 @@ import { useStudentDetails } from "@/http/requests/Students/useStudentDetails";
 import backgroundStudentDetails from "@/assets/image/background-student-details.jpg";
 import { StudentCard } from "./components/StudentCard";
 import { StudentNotFound } from "./components/StudentNotFound";
+import { usePageTitle } from "@/hook/usePageTitle";
 
 export function StudentDetails() {
   const { id } = useParams<{ id: string }>();
   const { student, isLoading } = useStudentDetails(id!);
+  usePageTitle(`${student?.name || "Students"} - Wizardpedia`);
 
   return (
     <BackgroundImage

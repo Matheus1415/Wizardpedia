@@ -3,11 +3,13 @@ import { houseColors } from "@/styles/houseColors";
 import backgroundStudent from "@/assets/image/background-student.jpg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { CatalogPageLayout } from "@/layouts/components/CatalogPageLayout";
+import { usePageTitle } from "@/hook/usePageTitle";
 
 export function Students() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const house = params.get("house") ?? undefined;
+  usePageTitle("Students - Wizardpedia");
 
   const { students, isLoading } = useStudents({ house });
   const navigate = useNavigate();
@@ -19,7 +21,9 @@ export function Students() {
       background={backgroundStudent}
       items={students}
       isLoading={isLoading}
-      getColor={(s) => houseColors[s.house as keyof typeof houseColors] || houseColors.default}
+      getColor={(s) =>
+        houseColors[s.house as keyof typeof houseColors] || houseColors.default
+      }
       onCardClick={(s) => navigate(`/student/${s.id}`)}
     />
   );

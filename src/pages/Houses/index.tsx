@@ -10,6 +10,7 @@ import ravenclaw from "@/assets/image/houses/ravenclaw.jpeg";
 import slytherin from "@/assets/image/houses/slytherin.jpeg";
 import { HousesList } from "./components/HousesList";
 import { HousesNotFound } from "./components/HousesNotFound";
+import { usePageTitle } from "@/hook/usePageTitle";
 
 const houseImages: Record<string, string> = {
   Gryffindor: graffindor,
@@ -20,6 +21,7 @@ const houseImages: Record<string, string> = {
 
 export function Houses() {
   const { houses } = useHouses();
+  usePageTitle('Houses - Wizardpedia')
 
   return (
     <BackgroundImage
