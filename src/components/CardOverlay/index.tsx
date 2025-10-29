@@ -1,22 +1,17 @@
 import { HouseNamePT } from "@/data/langs/HouseNamePT";
+import type { Character } from "@/types/Character";
 import { Box, Text, Group, Badge } from "@mantine/core";
 import { Star, Book, Zap, User, Heart, Skull } from "lucide-react";
 
-interface StudentOverlayProps {
-  student: {
-    name: string;
-    house?: string;
-    species?: string;
-    wizard: boolean;
-    alive: boolean;
-  };
+interface CardOverlayProps {
+  character: Character;
   houseColor: string;
 }
 
-export function StudentOverlay({ student, houseColor }: StudentOverlayProps) {
+export function CardOverlay({ character, houseColor }: CardOverlayProps) {
   const housePT =
-    student.house !== ""
-      ? HouseNamePT[student.house as keyof typeof HouseNamePT] ||
+    character.house !== ""
+      ? HouseNamePT[character.house as keyof typeof HouseNamePT] ||
         HouseNamePT.Default
       : HouseNamePT.Default;
 
@@ -36,10 +31,14 @@ export function StudentOverlay({ student, houseColor }: StudentOverlayProps) {
       }}
     >
       <Text fw={700} size="lg" align="center">
-        {student.name}
+        {character.name}
       </Text>
 
-      <Group position="center" className="d-flex justify-content-between " spacing="xs">
+      <Group
+        position="center"
+        className="d-flex justify-content-between "
+        spacing="xs"
+      >
         <Badge
           color={houseColor}
           variant="filled"
@@ -49,38 +48,38 @@ export function StudentOverlay({ student, houseColor }: StudentOverlayProps) {
           {housePT}
         </Badge>
 
-        {student.species && (
+        {character.species && (
           <Badge
             color="blue"
             variant="light"
             size="sm"
             leftSection={<Book size={12} />}
           >
-            {student.species}
+            {character.species}
           </Badge>
         )}
       </Group>
 
       <div className="d-flex justify-content-between gap-3">
         <div className="d-flex align-items-center gap-1">
-          {student.wizard ? (
+          {character.wizard ? (
             <Zap size={16} color="#29F598" />
           ) : (
             <User size={16} color="#CBCBCB" />
           )}
           <Text size="sm" c="white" className="mb-0">
-            {student.wizard ? "Bruxo" : "Muggle"}
+            {character.wizard ? "Bruxo" : "Muggle"}
           </Text>
         </div>
 
         <div className="d-flex align-items-center gap-1">
-          {student.alive ? (
+          {character.alive ? (
             <Heart size={16} color="#E6B83C" />
           ) : (
             <Skull size={16} color="#CD5656" />
           )}
           <Text size="sm" c="white" className="mb-0">
-            {student.alive ? "Vivo" : "Falecido"}
+            {character.alive ? "Vivo" : "Falecido"}
           </Text>
         </div>
       </div>

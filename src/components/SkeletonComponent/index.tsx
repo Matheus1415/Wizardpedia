@@ -1,6 +1,6 @@
 import { Card, SimpleGrid, Box, Skeleton } from "@mantine/core";
 
-export function StudentsSkeleton() {
+export function SkeletonComponent() {
   const skeletons = Array.from({ length: 4 }); 
   return (
     <SimpleGrid cols={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing="xl" mt="lg">

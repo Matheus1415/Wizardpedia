@@ -4,6 +4,7 @@ import type { Character } from "@/types/Character";
 import { Badge, Card, Image, ScrollArea } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { Heart, Home, Star, User, Wand2 } from "lucide-react";
+import defaultImageStudants from "@/assets/image/default-card-students.jpg";
 
 interface StudentCardProps {
   student: Character;
@@ -34,7 +35,7 @@ export function StudentCard({ student }: StudentCardProps) {
       <div className="row g-4 align-items-start">
         <div className={isMobile ? "col-12" : "col-md-5"}>
           <Image
-            src={student.image}
+            src={student.image || defaultImageStudants}
             alt={student.name}
             radius="lg"
             fit="cover"
