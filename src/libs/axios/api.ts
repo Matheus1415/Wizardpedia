@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const Api = axios.create({
-  baseURL: "https://hp-api.onrender.com/api/",
+  baseURL: import.meta.env.VITE_API_URL,
   headers: {
     Accept: "application/json",
   },
