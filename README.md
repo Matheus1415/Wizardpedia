@@ -104,20 +104,32 @@ Bem-vindo ao **Hogwarts Catalog**, um projeto mágico que reúne informações s
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/seu-usuario/hogwarts-catalog.git
-   cd hogwarts-catalog
+   git clone https://github.com/Matheus1415/Wizardpedia.git
+   cd Wizardpedia
    ```
    
 2. **Instale as dependências**
    ```bash
    npm install
    ```
+   
+3. **Crie o arquivo .env**
+ Na raiz do projeto, crie um arquivo chamado .env e adicione a seguinte variável:
+   ```bash
+   VITE_API_URL="https://hp-api.onrender.com/api/"
+   ```
       
-3. **Rode o projeto**
+4. **Rode o projeto**
    ```bash
    npm run dev
    ```
-
+      
+5. **Acesse no navegador**
+Após iniciar o servidor, abra o navegador e acesse:
+   ```bash
+   http://localhost:5173
+   ```
+   
 ## Rodando com Docker
 
 1. **Construir a imagem**
